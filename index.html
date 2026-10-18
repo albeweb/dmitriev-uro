@@ -69,17 +69,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .lead{font-size:var(--fs-sub);line-height:1.4;letter-spacing:var(--track-sub);color:var(--graphite);max-width:52ch}
 .caption{font-size:var(--fs-caption);letter-spacing:var(--track-caption);line-height:1.2;text-transform:uppercase;color:var(--graphite)}
 .wrap{width:100%;margin:0 auto;padding-inline:var(--edge)}
-/* ===== Плавные волновые переходы между секциями ===== */
-.band{
-  background-color:var(--band-bg);
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,0 L1440,0 L1440,8 C1100,38 340,38 0,8 Z' fill='%23ffffff'/></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,40 L1440,40 L1440,32 C1100,2 340,2 0,32 Z' fill='%23ffffff'/></svg>");
-  background-position:top left,bottom left;
-  background-repeat:no-repeat;
-  background-size:100% 40px;
-  color:var(--band-text);
-}
+.band{background-color:var(--band-bg);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,0 L1440,0 L1440,8 C1100,38 340,38 0,8 Z' fill='%23ffffff'/></svg>"),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,40 L1440,40 L1440,32 C1100,2 340,2 0,32 Z' fill='%23ffffff'/></svg>");background-position:top left,bottom left;background-repeat:no-repeat;background-size:100% 40px;color:var(--band-text)}
 @media (max-width:700px){.band{background-size:100% 26px}}
 @media (max-width:480px){.band{background-size:100% 20px}}
 .section{padding-block:clamp(56px,7vw,var(--sp-112));scroll-margin-top:80px}
@@ -131,12 +121,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .hero-figure img{width:100%;max-width:var(--img-max);aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-img);filter:saturate(.92) contrast(1.01)}
 .hero-figure figcaption{margin-top:var(--sp-16);padding-top:var(--sp-16);border-top:1px solid var(--fog);font-size:var(--fs-caption);letter-spacing:var(--track-caption);text-transform:uppercase;color:var(--graphite);display:flex;justify-content:space-between;gap:var(--sp-16);max-width:var(--img-max)}
 @media (max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-figure{max-width:var(--img-max)}}
-@media (max-width:560px){
-  .hero-meta{grid-template-columns:1fr 1fr;gap:var(--sp-16);padding-top:var(--sp-24)}
-  .hero-meta>div.hero-meta-wide{grid-column:1/-1;padding-top:var(--sp-16)}
-  .hero-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%}
-  .hero-actions .btn{justify-content:center;width:100%}
-}
+@media (max-width:560px){.hero-meta{grid-template-columns:1fr 1fr;gap:var(--sp-16);padding-top:var(--sp-24)}.hero-meta>div.hero-meta-wide{grid-column:1/-1;padding-top:var(--sp-16)}.hero-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%}.hero-actions .btn{justify-content:center;width:100%}}
 .approach-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,6vw,80px);align-items:start}
 .approach-intro h2{margin-bottom:var(--sp-24);max-width:14ch}
 .approach-principles{display:grid;gap:var(--sp-40)}
@@ -182,7 +167,6 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .methods-dot:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
 .methods-note{margin-top:var(--sp-24);font-size:var(--fs-sub);letter-spacing:var(--track-sub);color:var(--graphite);line-height:1.5;max-width:80ch;text-align:left}
 @media (max-width:800px){.method-slide{grid-template-columns:1fr;gap:var(--sp-24)}.method-caption h3{font-size:1.4rem}.method-caption p{font-size:1.0625rem}}
-/* ===== Причины для обращения — карточки ===== */
 .symptoms-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,6vw,80px);align-items:start}
 .symptoms-intro h2{max-width:14ch;margin-bottom:var(--sp-24)}
 .symptoms-intro p{font-size:var(--fs-body);letter-spacing:var(--track-body);color:var(--graphite);line-height:1.5;max-width:44ch}
@@ -329,7 +313,6 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .footer-legal{margin-top:var(--sp-32);padding-top:var(--sp-32);border-top:1px solid var(--fog);font-size:var(--fs-caption);letter-spacing:var(--track-caption);line-height:1.6;color:var(--graphite);max-width:110ch}
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:var(--sp-40)}.footer-brand{grid-column:span 2}.footer-contacts-map{grid-template-columns:1fr}.footer-map{min-height:320px}}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}}
-/* ===== Тёмные секции (graphite bands) ===== */
 .band h1,.band h2,.band h3,.band h4{color:var(--band-text)}
 .band .caption{color:var(--band-text-faint)}
 .band .principle{border-bottom-color:var(--band-line)}
