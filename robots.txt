@@ -1,5 +1,5 @@
-# robots.txt для dmitriev-uro.ru
-# Врач-уролог Дмитриев Владимир Валерьевич, Санкт-Петербург
+# robots.txt для dmitrievuro.ru
+# Врач-уролог Дмитриев Владимир Валерьевич, Санкт-Петербург, Приморский район
 
 User-agent: *
 Allow: /
@@ -8,4 +8,4 @@ Allow: /
 Disallow: /404.html
 
 # Ссылка на карту сайта
-Sitemap: https://dmitriev-uro.ru/sitemap.xml
+Sitemap: https://dmitrievuro.ru/sitemap.xml
