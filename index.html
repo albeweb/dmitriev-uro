@@ -260,14 +260,14 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   .hero-actions{order:5;margin-bottom:0}
   .hero-meta{order:6}
   .hero{padding-top:clamp(40px,8vh,72px);padding-bottom:clamp(40px,8vw,72px)}
-  .hero__bg{object-position:center center}
+  .hero__bg{object-position:center center;transform:scale(0.85);transform-origin:center center}
 }
 @media (max-width:560px){
   .hero-meta{grid-template-columns:1fr 1fr;gap:var(--sp-16);padding-top:var(--sp-24)}
   .hero-meta>div.hero-meta-wide{grid-column:1/-1;padding-top:var(--sp-16)}
   .hero-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%}
   .hero-actions .btn{justify-content:center;width:100%}
-  .hero__bg{object-position:center center}
+  .hero__bg{object-position:center center;transform:scale(0.78);transform-origin:center center}
 }
 
 /* ===== ПОДХОД / ПРИНЦИПЫ ===== */
