@@ -91,7 +91,6 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .caption{font-size:var(--fs-caption);letter-spacing:var(--track-caption);line-height:1.2;text-transform:uppercase;color:var(--graphite)}
 .wrap{width:100%;margin:0 auto;padding-inline:var(--edge)}
 .band{background-color:var(--band-bg);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,0 L1440,0 L1440,8 C1100,38 340,38 0,8 Z' fill='%23ffffff'/></svg>"),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,40 L1440,40 L1440,32 C1100,2 340,2 0,32 Z' fill='%23ffffff'/></svg>");background-position:top left,bottom left;background-repeat:no-repeat;background-size:100% 40px;color:var(--band-text)}
-/* band только с нижней волной (первый блок после hero) */
 .band--bottom-only{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,40 L1440,40 L1440,32 C1100,2 340,2 0,32 Z' fill='%23ffffff'/></svg>");background-position:bottom left}
 @media (max-width:700px){.band{background-size:100% 26px}}
 @media (max-width:480px){.band{background-size:100% 20px}}
@@ -126,10 +125,10 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 @media (max-width:900px){.nav-links,.nav-phone{display:none}.nav-burger{display:grid}.nav-mobile{display:block}}
 @media (max-width:560px){.nav{padding-block:10px}.nav-inner{gap:var(--sp-16)}.nav .nav-brand{font-size:1rem}.nav .nav-brand>span{font-size:.625rem;letter-spacing:.05em;margin-top:3px}.nav .nav-brand-role,.nav .nav-brand-city{display:block}.nav .nav-brand-city{margin-top:1px}.nav .nav-brand-city::before{content:none}.nav-right{gap:10px}.nav-right .btn-sage{padding:7px 14px;font-size:var(--fs-sm)}.nav-burger{width:36px;height:36px}}
 
-/* ===== HERO — фон как в блоге ===== */
 .hero{position:relative;isolation:isolate;overflow:hidden;background-color:var(--band-bg);padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(56px,8vw,120px);color:var(--paper)}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(140% 100% at 50% 100%, rgba(15,15,17,.92) 0%, rgba(15,15,17,.35) 60%, rgba(15,15,17,.05) 100%),linear-gradient(180deg, rgba(20,20,22,.42) 0%, rgba(20,20,22,.68) 35%, rgba(20,20,22,.90) 70%, rgba(20,20,22,.97) 100%),url("/001.webp");background-size:cover,cover,cover;background-position:center,center,center;background-repeat:no-repeat}
-.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.hero__bg{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(140% 100% at 50% 100%, rgba(15,15,17,.92) 0%, rgba(15,15,17,.35) 60%, rgba(15,15,17,.05) 100%),linear-gradient(180deg, rgba(20,20,22,.42) 0%, rgba(20,20,22,.68) 35%, rgba(20,20,22,.90) 70%, rgba(20,20,22,.97) 100%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
 .hero-copy{max-width:720px}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:var(--sp-8);font-size:var(--fs-caption);letter-spacing:var(--track-caption);text-transform:uppercase;color:rgba(243,241,235,.85);margin-bottom:var(--sp-32);text-shadow:0 1px 3px rgba(0,0,0,.55)}
 .hero-eyebrow::before{content:"";width:20px;height:1px;background:var(--sage)}
@@ -149,8 +148,25 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .hero-figure{position:relative}
 .hero-figure img{width:100%;max-width:var(--img-max);aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-img);filter:saturate(.92) contrast(1.01)}
 .hero-figure figcaption{margin-top:var(--sp-16);padding-top:var(--sp-16);border-top:1px solid rgba(243,241,235,.24);font-size:var(--fs-caption);letter-spacing:var(--track-caption);text-transform:uppercase;color:rgba(243,241,235,.65);display:flex;justify-content:space-between;gap:var(--sp-16);max-width:var(--img-max)}
-@media (max-width:900px){.hero-inner{display:flex;flex-direction:column;gap:var(--sp-24)}.hero-copy{display:contents}.hero-eyebrow{order:1;margin-bottom:0;align-self:flex-start}.hero-title{order:2;margin-bottom:0;font-size:clamp(1.9rem,5vw,2.6rem)}.hero-figure{order:3;max-width:var(--img-max);width:100%}.hero-lead{order:4;margin-bottom:0}.hero-actions{order:5;margin-bottom:0}.hero-meta{order:6}}
-@media (max-width:560px){.hero-meta{grid-template-columns:1fr 1fr;gap:var(--sp-16);padding-top:var(--sp-24)}.hero-meta>div.hero-meta-wide{grid-column:1/-1;padding-top:var(--sp-16)}.hero-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%}.hero-actions .btn{justify-content:center;width:100%}}
+@media (max-width:900px){
+  .hero-inner{display:flex;flex-direction:column;gap:var(--sp-24)}
+  .hero-copy{display:contents}
+  .hero-eyebrow{order:1;margin-bottom:0;align-self:flex-start}
+  .hero-title{order:2;margin-bottom:0;font-size:clamp(1.9rem,5vw,2.6rem)}
+  .hero-figure{order:3;max-width:var(--img-max);width:100%}
+  .hero-lead{order:4;margin-bottom:0}
+  .hero-actions{order:5;margin-bottom:0}
+  .hero-meta{order:6}
+  .hero{padding-top:clamp(40px,8vh,72px);padding-bottom:clamp(40px,8vw,72px)}
+  .hero__bg{object-position:center 20%}
+}
+@media (max-width:560px){
+  .hero-meta{grid-template-columns:1fr 1fr;gap:var(--sp-16);padding-top:var(--sp-24)}
+  .hero-meta>div.hero-meta-wide{grid-column:1/-1;padding-top:var(--sp-16)}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%}
+  .hero-actions .btn{justify-content:center;width:100%}
+  .hero__bg{object-position:center 15%}
+}
 
 .approach-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,6vw,80px);align-items:start}
 .approach-intro h2{margin-bottom:var(--sp-24);max-width:14ch}
@@ -216,11 +232,24 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 @media (max-width:900px){.symptoms-inner{grid-template-columns:1fr}}
 @media (max-width:700px){.symptoms-list{grid-template-columns:1fr}}
 @media (max-width:560px){.symptom{font-size:1.125rem;line-height:1.4;padding:22px}.symptom-more{font-size:var(--fs-body)}}
-/* ===== ОТЗЫВЫ (ReviewLab widget) ===== */
 .reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--sp-32);flex-wrap:wrap;margin-bottom:var(--sp-48)}
 .reviews-head h2{max-width:16ch;margin-top:var(--sp-16)}
-.reviews-widget{position:relative;display:block;min-height:120px;width:100%}
+.reviews-widget{position:relative;display:block;width:100%;min-height:320px}
 .reviews-widget review-lab{display:block;width:100%}
+.reviews-skeleton{position:absolute;inset:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-24);padding:var(--sp-24) 0;pointer-events:none;z-index:0}
+.reviews-skeleton__card{display:flex;flex-direction:column;gap:var(--sp-16);padding:var(--pad-card);border:1px solid var(--band-line);border-radius:var(--r-card);background:rgba(243,241,235,.03);animation:rl-pulse 1.6s ease-in-out infinite}
+.reviews-skeleton__row{height:12px;border-radius:100px;background:rgba(243,241,235,.08)}
+.reviews-skeleton__row--avatar{width:56px;height:56px;border-radius:50%}
+.reviews-skeleton__row--title{width:60%}
+.reviews-skeleton__row--line{width:100%}
+.reviews-skeleton__row--line-short{width:80%}
+.reviews-skeleton__row--line-shortest{width:45%}
+@keyframes rl-pulse{0%,100%{opacity:.6}50%{opacity:1}}
+.reviews-widget.is-ready .reviews-skeleton{display:none}
+.reviews-widget.is-ready review-lab{animation:rl-fade-in .35s ease forwards}
+@keyframes rl-fade-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.reviews-skeleton{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.reviews-skeleton__card{animation:none}.reviews-widget.is-ready review-lab{animation:none}}
 .appointment-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
 .appointment-copy h2{max-width:16ch;margin-bottom:var(--sp-24)}
 .appointment-copy p{font-size:var(--fs-sub);letter-spacing:var(--track-sub);color:var(--graphite);line-height:1.4;max-width:48ch;margin-bottom:var(--sp-40)}
@@ -372,7 +401,6 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .band .footer-legal{border-top-color:var(--band-line);color:var(--band-text-faint)}
 .band .footer-map{border-color:var(--band-line)}
 @media (prefers-reduced-motion:no-preference){.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.reveal.is-visible{opacity:1;transform:none}.reveal:nth-child(2){transition-delay:.06s}.reveal:nth-child(3){transition-delay:.12s}}
-/* ===== БЛОГ НА ГЛАВНОЙ — ПРЕВЬЮ 3 СТАТЕЙ ===== */
 .blog-preview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-24);margin-top:var(--sp-48)}
 @media (max-width:900px){.blog-preview{grid-template-columns:1fr;max-width:480px;margin-inline:auto;margin-top:var(--sp-32)}}
 .blog-preview__card{display:flex;flex-direction:column;background:var(--paper);border:var(--border-fog);border-radius:var(--r-card);overflow:hidden;transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease;position:relative;color:var(--ink)}
@@ -401,7 +429,10 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;left:-9999px"><defs><symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></symbol><symbol id="i-arrow-right-thin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
 <header class="nav" id="siteNav"><div class="wrap nav-inner"><a href="#top" class="nav-brand" aria-label="Дмитриев Владимир Валерьевич — врач-уролог, Санкт-Петербург">Дмитриев Владимир<span class="nav-brand-meta"><span class="nav-brand-role">врач-уролог</span><span class="nav-brand-city">Санкт-Петербург</span></span></a><nav class="nav-links" aria-label="Основная навигация"><a href="#methods">Методы</a><a href="/blog/">Блог</a><a href="#reviews">Отзывы</a><a href="#appointment">Запись</a></nav><div class="nav-right"><a href="tel:+78126482408" class="nav-phone" aria-label="Позвонить для записи">+7 (812) 648-24-08</a><a href="#appointment" class="btn btn-sage">Записаться</a><button class="nav-burger" aria-label="Открыть меню" aria-expanded="false" id="navBurger"><span></span></button></div></div><div class="nav-mobile" id="navMobile"><div class="wrap"><ul><li><a href="#methods">Методы</a></li><li><a href="/blog/">Блог</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#appointment">Запись</a></li></ul></div></div></header>
 <main>
-<section class="hero" id="top"><div class="wrap hero-inner"><div class="hero-copy reveal"><span class="hero-eyebrow">Врач-уролог · стаж более 12 лет</span><h1 class="hero-title">Врач-уролог в<span class="hl">Приморском районе</span></h1><p class="lead hero-lead">Диагностика и лечение камней почек и мочеточников в условиях современного многопрофильного медицинского ФГБУ ВЦЭРМ им. А. М. Никифорова МЧС России.</p><div class="hero-actions"><a href="#appointment" class="btn btn-sage">Записаться на приём <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a href="#methods" class="btn btn-ghost">Методы лечения →</a></div><dl class="hero-meta"><div><dt>Стаж</dt><dd>12+ лет</dd></div><div><dt>Операций в год</dt><dd>150+</dd></div><div class="hero-meta-wide"><dt>Образование</dt><dd>2006–2012 — Военно-медицинская академия им. С. М. Кирова, «Лечебное дело»</dd></div><div class="hero-meta-wide"><dt>Ординатура</dt><dd>2012–2014 — НМХЦ им. Н. И. Пирогова, «Урология»</dd></div><div class="hero-meta-wide"><dt>Место работы</dt><dd>С 2014 года — врач-уролог ФГБУ ВЦЭРМ им. А. М. Никифорова, Санкт-Петербург</dd></div></dl></div><figure class="hero-figure reveal"><img src="uro.webp" alt="Врач-уролог Дмитриев Владимир Валерьевич — приём в клинике на ул. Оптиков 54, Санкт-Петербург" loading="eager"/><figcaption><span>Дмитриев В. В.</span><span>урология · СПб</span></figcaption></figure></div></section>
+<section class="hero" id="top">
+  <img class="hero__bg" src="/001.webp" alt="" loading="eager" fetchpriority="high" width="1920" height="1080" aria-hidden="true" decoding="async"/>
+  <div class="wrap hero-inner"><div class="hero-copy reveal"><span class="hero-eyebrow">Врач-уролог · стаж более 12 лет</span><h1 class="hero-title">Врач-уролог в<span class="hl">Приморском районе</span></h1><p class="lead hero-lead">Диагностика и лечение камней почек и мочеточников в условиях современного многопрофильного медицинского ФГБУ ВЦЭРМ им. А. М. Никифорова МЧС России.</p><div class="hero-actions"><a href="#appointment" class="btn btn-sage">Записаться на приём <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a href="#methods" class="btn btn-ghost">Методы лечения →</a></div><dl class="hero-meta"><div><dt>Стаж</dt><dd>12+ лет</dd></div><div><dt>Операций в год</dt><dd>150+</dd></div><div class="hero-meta-wide"><dt>Образование</dt><dd>2006–2012 — Военно-медицинская академия им. С. М. Кирова, «Лечебное дело»</dd></div><div class="hero-meta-wide"><dt>Ординатура</dt><dd>2012–2014 — НМХЦ им. Н. И. Пирогова, «Урология»</dd></div><div class="hero-meta-wide"><dt>Место работы</dt><dd>С 2014 года — врач-уролог ФГБУ ВЦЭРМ им. А. М. Никифорова, Санкт-Петербург</dd></div></dl></div><figure class="hero-figure reveal"><img src="uro.webp" alt="Врач-уролог Дмитриев Владимир Валерьевич — приём в клинике на ул. Оптиков 54, Санкт-Петербург" loading="eager"/><figcaption><span>Дмитриев В. В.</span><span>урология · СПб</span></figcaption></figure></div>
+</section>
 <section class="section band band--bottom-only" id="approach"><div class="wrap approach-inner"><div class="approach-intro reveal"><span class="caption">Подход</span><h2>Принципы моей работы</h2></div><div class="approach-principles"><article class="principle reveal"><span class="principle-num">01</span><div><h3>Доказательная медицина</h3><p>Строю свою работу на основе клинических рекомендаций Российской, Европейской и Американской ассоциаций урологов.</p></div></article><article class="principle reveal"><span class="principle-num">02</span><div><h3>Индивидуальный подход</h3><p>Благодаря отличной оснащённости операционной, выбор метода лечения зависит не от наличия того или иного инструмента, а от конкретных показаний к той или иной операции.</p></div></article><article class="principle reveal"><span class="principle-num">03</span><div><h3>Ваша безопасность превыше всего</h3><p>При возникновении осложнений в ходе операции или в раннем послеоперационном периоде, благодаря лечению в многопрофильном стационаре, Вы можете своевременно получить помощь сторонних специалистов.</p></div></article><article class="principle reveal"><span class="principle-num">04</span><div><h3>Предотвращение рецидивов</h3><p>В клинике есть возможность проведения полного обследования, позволяющего выявить причину камнеобразования и снизить или полностью исключить рецидивы камнеобразования.</p></div></article></div></div></section>
 <section class="section" id="methods"><div class="wrap"><div class="services-head reveal"><h2>Методы лечения</h2><p>Эндоскопические операции при камнях почек, мочеточников и мочевого пузыря.</p></div><div class="methods-carousel reveal"><div class="methods-viewport" id="methodsViewport"><div class="methods-track" id="methodsTrack"><article class="method-slide" aria-label="Перкутанная нефролитотрипсия"><div class="method-media"><img src="PCLN.webp" alt="Схема перкутанной нефролитотрипсии — PCNL" loading="lazy"/></div><div class="method-caption"><h3>Перкутанная нефролитотрипсия</h3><p>Эндоскопический метод лечения крупных (более 1.5 см) камней почек. Выполняется через небольшой (около 1 см) разрез кожи в поясничной области. С целью минимизации рисков осложнений, доступ к почке осуществляется с использованием комбинированного метода наведения (УЗИ и рентген). В ходе самой операции, с целью минимизации травмы почки и риска кровотечения, используется инструмент малого диаметра (мининефроскоп). Само дробление осуществляется при помощи одного из литотрипторов (лазерного, пневматического или ультразвукового), выбор зависит от размеров и плотности камня. В конце операции обычно устанавливается либо нефростома, либо мочеточниковый стент с целью контроля и минимизации боли в послеоперационном периоде.</p><div class="method-price"><span class="method-price__value">от 139 000 ₽<sup>*</sup></span><span class="method-price__note">* Цена указана за лечение под ключ: операция, анестезия, палата, медикаменты.</span></div></div></article><article class="method-slide" aria-label="Ретроградная нефролитотрипсия"><div class="method-media"><img src="RIRS.webp" alt="Схема ретроградной нефролитотрипсии — RIRS" loading="lazy"/></div><div class="method-caption"><h3>Ретроградная нефролитотрипсия</h3><p>Эндоскопический метод лечения камней почек до 1.5 см и множественных мелких камней. По сравнению с перкутанной нефролитотрипсией несёт значительно меньшие интра- и послеоперационные риски. Тонкий гибкий инструмент проводится через мочеиспускательный канал в мочевой пузырь и далее по мочеточнику в почку. Камни фрагментируются лазером до состояния пыли, которая беспрепятственно отходит по мочеточнику. Для снижения риска травматизации мочеточника может потребоваться установка мочеточникового стента за неделю до основного этапа.</p><div class="method-price"><span class="method-price__value">от 216 000 ₽<sup>*</sup></span><span class="method-price__note">* Цена указана за лечение под ключ: операция, анестезия, палата, медикаменты.</span></div></div></article><article class="method-slide" aria-label="Контактная уретеролитотрипсия"><div class="method-media"><img src="URS.webp" alt="Схема контактной уретеролитотрипсии — URS" loading="lazy"/></div><div class="method-caption"><h3>Контактная уретеролитотрипсия</h3><p>Эндоскопический метод лечения камней мочеточников, являющийся на сегодняшний день золотым стандартом. Камни фрагментируются при помощи лазера, фрагменты удаляются в мочевой пузырь или наружу при помощи эндоскопической корзинки. Благодаря использованию тонких инструментов значительно снижается риск травматизации мочеточника и возрастают шансы на успешное проведение инструмента до уровня нахождения камня.</p><div class="method-price"><span class="method-price__value">от 102 000 ₽<sup>*</sup></span><span class="method-price__note">* Цена указана за лечение под ключ: операция, анестезия, палата, медикаменты.</span></div></div></article></div></div><div class="methods-nav"><button type="button" class="methods-arrow" id="methodsPrev" aria-label="Предыдущий метод"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-left"/></svg></button><div class="methods-dots" id="methodsDots" aria-label="Навигация по методам лечения"></div><button type="button" class="methods-arrow" id="methodsNext" aria-label="Следующий метод"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right-thin"/></svg></button></div><p class="methods-note">Выбор метода лечения осуществляется совместно с Вами на очной консультации или дистанционной беседе. Возможно получение медицинской помощи по полису ОМС.</p></div></div></section>
 <section class="section" id="symptoms"><div class="wrap symptoms-inner"><div class="symptoms-intro reveal"><span class="caption">С чем обращаются</span><h2>Причины для обращения</h2><p>Не откладывайте визит — ранняя диагностика существенно упрощает лечение и сокращает его срок.</p></div><div class="symptoms-list">
@@ -412,7 +443,39 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 <button type="button" class="symptom reveal" data-symptom="hydronephrosis"><span class="symptom-text">Расширение лоханки почки при УЗИ</span><span class="symptom-more">Подробнее <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button>
 <button type="button" class="symptom reveal" data-symptom="stones-ct"><span class="symptom-text">Наличие камней в почках/мочеточниках при компьютерной томографии</span><span class="symptom-more">Подробнее <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button>
 </div></div></section>
-<section class="section band" id="reviews"><div class="wrap"><div class="reviews-head reveal"><div><span class="caption">Отзывы</span><h2>Что говорят пациенты</h2></div></div><div class="reviews-widget reveal"><review-lab data-widgetid="6ae79a54577d292d47eb74fa"><a href="https://reviewlab.ru/?utm_source=reviewlab-widget" target="_blank">Сделано на ReviewLab</a></review-lab></div></div></section>
+<section class="section band" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head reveal"><div><span class="caption">Отзывы</span><h2>Что говорят пациенты</h2></div></div>
+    <div class="reviews-widget reveal" id="reviewsWidget">
+      <review-lab data-widgetid="6ae79a54577d292d47eb74fa">
+        <a href="https://reviewlab.ru/?utm_source=reviewlab-widget" target="_blank">Сделано на ReviewLab</a>
+      </review-lab>
+      <div class="reviews-skeleton" aria-hidden="true">
+        <div class="reviews-skeleton__card">
+          <div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--title"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div>
+        </div>
+        <div class="reviews-skeleton__card">
+          <div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--title"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div>
+        </div>
+        <div class="reviews-skeleton__card">
+          <div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--title"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div>
+          <div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section" id="blog">
   <div class="wrap">
     <div class="services-head reveal"><h2>Блог</h2><p>Разбор клинических случаев, современных методов диагностики и профилактики мочекаменной болезни — от врача-уролога.</p></div>
@@ -484,6 +547,43 @@ function initMethodsCarousel(){const tr=byId('methodsTrack');const vp=byId('meth
 function initLightbox(){const lb=byId('lightbox');const img=byId('lightboxImg');if(!lb||!img)return;document.querySelectorAll('.method-media img').forEach(source=>{source.addEventListener('click',(e)=>{e.stopPropagation();const src=source.currentSrc||source.src;img.src=src;img.alt=source.alt||'';Modal.open(lb,'.lightbox__close')})});lb.querySelectorAll('[data-lightbox-close]').forEach(el=>{el.addEventListener('click',()=>Modal.close(lb))});Modal.trapFocus(lb)}
 document.addEventListener('DOMContentLoaded',()=>{initNav();initReveal();initSymptomModal();initSuccessModal();initEscapeHandler();initPhoneMask();initForm();initMethodsCarousel();initLightbox()});
 </script>
-<script src="https://app.reviewlab.ru/widget/index-es2015.js" defer></script>
+<script>
+(function(){
+  'use strict';
+  var reviewsEl = document.querySelector('.reviews-widget');
+  if (!reviewsEl) return;
+  var loaded = false;
+  function loadReviewLab(){
+    if (loaded) return;
+    loaded = true;
+    var skeleton = reviewsEl.querySelector('.reviews-skeleton');
+    if (skeleton) skeleton.remove();
+    var s = document.createElement('script');
+    s.src = 'https://app.reviewlab.ru/widget/index-es2015.js';
+    s.async = true;
+    s.onload = function(){ reviewsEl.classList.add('is-ready'); };
+    s.onerror = function(){ console.warn('ReviewLab: не удалось загрузить скрипт виджета'); };
+    document.body.appendChild(s);
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          loadReviewLab();
+          io.disconnect();
+        }
+      });
+    }, { rootMargin: '600px 0px' });
+    io.observe(reviewsEl);
+  } else {
+    window.addEventListener('load', function(){
+      (window.requestIdleCallback || function(cb){ setTimeout(cb, 200); })(loadReviewLab);
+    });
+  }
+  ['scroll','touchstart','click','keydown'].forEach(function(ev){
+    window.addEventListener(ev, loadReviewLab, { once: true, passive: true });
+  });
+})();
+</script>
 </body>
 </html>
