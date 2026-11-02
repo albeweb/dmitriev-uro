@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -107,7 +108,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .wrap{width:100%;margin:0 auto;padding-inline:var(--edge)}
 .section{padding-block:clamp(56px,7vw,var(--sp-112));scroll-margin-top:80px}
 
-/* ===== BAND ===== */
+/* ===== BAND (Переходы между блоками) ===== */
 .band{
   background-color:var(--band-bg);
   background-image:
@@ -118,17 +119,10 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   background-size:100% 40px;
   color:var(--band-text);
 }
-.band--top-only{
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,0 L1440,0 L1440,8 C1100,38 340,38 0,8 Z' fill='%23ffffff'/></svg>");
-  background-position:top left
-}
-@media (max-width:700px){.band,.band--top-only{background-size:100% 26px}}
-@media (max-width:480px){.band,.band--top-only{background-size:100% 20px}}
+@media (max-width:700px){.band{background-size:100% 26px}}
+@media (max-width:480px){.band{background-size:100% 20px}}
 .band h1,.band h2,.band h3,.band h4{color:var(--band-text)}
 .band .caption{color:var(--band-text-faint)}
-/* Правильные цвета внутри тёмных блоков для .services-head (используется в блоке Блог) */
-.band .services-head h2{color:var(--band-text)}
-.band .services-head p{color:var(--band-text-muted)}
 
 .btn{display:inline-flex;align-items:center;gap:var(--sp-8);padding:12px 20px;font-family:var(--font-sans);font-size:var(--fs-body);font-weight:500;letter-spacing:var(--track-body);border-radius:var(--r-btn);transition:background .25s ease,transform .2s ease,border-color .25s ease,color .25s ease;white-space:nowrap}
 .btn-sage{background:var(--sage);color:var(--ink)}
@@ -518,7 +512,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   <div class="hero__wave"></div>
 </section>
 
-<!-- LIGHT -->
+<!-- LIGHT SECTION -->
 <section class="section" id="approach">
   <div class="wrap approach-inner">
     <div class="approach-intro reveal"><span class="caption">Подход</span><h2>Принципы моей работы</h2></div>
@@ -531,7 +525,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- DARK -->
+<!-- DARK SECTION -->
 <section class="section band" id="education" aria-labelledby="education-title">
   <div class="wrap">
     <div class="education-head reveal">
@@ -562,7 +556,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- LIGHT -->
+<!-- LIGHT SECTION -->
 <section class="section" id="methods">
   <div class="wrap">
     <div class="services-head reveal"><h2>Методы лечения</h2><p>Эндоскопические операции при камнях почек, мочеточников и мочевого пузыря.</p></div>
@@ -593,7 +587,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- DARK -->
+<!-- DARK SECTION -->
 <section class="section band" id="symptoms">
   <div class="wrap symptoms-inner">
     <div class="symptoms-intro reveal"><span class="caption">С чем обращаются</span><h2>Причины для обращения</h2><p>Не откладывайте визит — ранняя диагностика существенно упрощает лечение и сокращает его срок.</p></div>
@@ -608,7 +602,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- LIGHT -->
+<!-- LIGHT SECTION -->
 <section class="section" id="reviews">
   <div class="wrap">
     <div class="reviews-head reveal"><div><span class="caption">Отзывы</span><h2>Что говорят пациенты</h2></div></div>
@@ -625,7 +619,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- DARK -->
+<!-- DARK SECTION -->
 <section class="section band" id="blog">
   <div class="wrap">
     <div class="services-head reveal"><h2>Блог</h2><p>Разбор клинических случаев, современных методов диагностики и профилактики мочекаменной болезни — от врача-уролога.</p></div>
@@ -638,7 +632,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   </div>
 </section>
 
-<!-- LIGHT -->
+<!-- LIGHT SECTION -->
 <section class="section" id="appointment">
   <div class="wrap appointment-inner">
     <div class="appointment-copy reveal"><span class="caption">Запись на приём</span><h2>Первый шаг к решению проблемы</h2><p>Оставьте заявку и в ближайшее возможное время с Вами свяжутся.</p><ul class="appointment-points"><li>Приём/беседа длится 30 минут</li><li>В ходе очного приёма будет выполнено УЗИ</li><li>Стоимость консультации <span class="hl">3 000 ₽</span></li></ul></div>
@@ -656,8 +650,8 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 </section>
 </main>
 
-<!-- DARK -->
-<footer class="footer band band--top-only" id="contacts" itemscope itemtype="https://schema.org/MedicalClinic">
+<!-- DARK SECTION -->
+<footer class="footer band" id="contacts" itemscope itemtype="https://schema.org/MedicalClinic">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand"><a href="#top" class="nav-brand" itemprop="name">Дмитриев Владимир<span>врач-уролог · Санкт-Петербург</span></a><p class="footer-about" itemprop="description">Частная урологическая практика. Доказательная медицина, деликатный подход, эндоскопические операции при камнях почек.</p></div>
@@ -683,7 +677,7 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 </footer>
 
 <div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" aria-hidden="true"><div class="success-modal__backdrop" data-success-close></div><div class="success-modal__panel" role="document"><button type="button" class="success-modal__close" aria-label="Закрыть" data-success-close><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><div class="success-modal__icon" aria-hidden="true"><svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><circle class="success-icon__circle" cx="26" cy="26" r="24" fill="none"/><path class="success-icon__check" fill="none" d="M14 27l8 8 16-16"/></svg></div><h2 class="success-modal__title" id="successModalTitle">Ваша заявка успешно отправлена</h2><p class="success-modal__text">Мы свяжемся с вами в ближайшее время. В случае возникновения дополнительных вопросов звоните по телефону <a href="tel:+78126482408">+7 (812) 648-24-08</a>.</p><div class="success-modal__actions"><button type="button" class="btn btn-sage" data-success-close>Понятно</button></div></div></div>
-<div class="modal" id="symptomModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-backdrop" data-modal-close></div><div class="modal-panel" role="document"><button type="button" class="modal-close" aria-label="Закрыть" data-modal-close><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><span class="caption modal-eyebrow">Возможные причины</span><h2 class="modal-title" id="modalTitle"></h2><div class="modal-body"><div class="modal-block"><h3>Что это может быть</h3><p id="modalCauses"></p></div><div class="modal-block"><h3>Чем это может грозить</h3><p id="modalRisks"></p></div></div><div class="modal-actions"><a href="#appointment" class="btn btn-sage" data-modal-close>Записаться на приём <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><button type="button" class="btn btn-ghost" data-modal-close>Позже</button></div></div></div>
+<div class="modal" id="symptomModal" role="dialog" ariaaria-labelledby="modalTitle" aria-hidden="true"><div class="modal-backdrop" data-modal-close></div><div class="modal-panel" role="document"><button type="button" class="modal-close" aria-label="Закрыть" data-modal-close><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><span class="caption modal-eyebrow">Возможные причины</span><h2 class="modal-title" id="modalTitle"></h2><div class="modal-body"><div class="modal-block"><h3>Что это может быть</h3><p id="modalCauses"></p></div><div class="modal-block"><h3>Чем это может грозить</h3><p id="modalRisks"></p></div></div><div class="modal-actions"><a href="#appointment" class="btn btn-sage" data-modal-close>Записаться на приём <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><button type="button" class="btn btn-ghost" data-modal-close>Позже</button></div></div></div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" aria-hidden="true"><div class="lightbox__backdrop" data-lightbox-close></div><button type="button" class="lightbox__close" aria-label="Закрыть" data-lightbox-close><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><img class="lightbox__img" id="lightboxImg" src="" alt=""/></div>
 <script>
 'use strict';
@@ -723,7 +717,7 @@ function initEducationCarousel(){
   for(let i=0;i<total;i++){
     const d=document.createElement('button');
     d.type='button';
-    d.className='methods-dot'' (i===0?' is-active':'');
+    d.className='methods-dot'+(i===0?' is-active':'');
     d.setAttribute('aria-label','Показать документ '+(i+1)+' из '+total);
     d.addEventListener('click',()=>scrollToSlide(i));
     db.appendChild(d);
