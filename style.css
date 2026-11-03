@@ -69,18 +69,20 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
 .band .btn-ghost{color:var(--band-text);border-color:var(--band-line)}
 .band .btn-ghost:hover{color:var(--band-text);border-color:var(--band-text);background:var(--band-hover)}
 
+/* ===== NAV (шапка) — увеличенный шрифт ===== */
 .nav{position:sticky;top:0;z-index:100;background:var(--paper);padding-block:var(--sp-16)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-24)}
-.nav-brand{font-size:1.125rem;font-weight:500;letter-spacing:var(--track-sub);color:var(--ink);line-height:1.1;display:inline-block}
-.nav-brand>span{display:block;font-size:var(--fs-caption);font-weight:400;letter-spacing:var(--track-caption);text-transform:uppercase;color:var(--graphite);margin-top:3px;line-height:1.35}
+.nav-brand{font-size:1.1875rem;font-weight:500;letter-spacing:var(--track-sub);color:var(--ink);line-height:1.1;display:inline-block}
+.nav-brand>span{display:block;font-size:.8125rem;font-weight:400;letter-spacing:var(--track-caption);text-transform:uppercase;color:var(--graphite);margin-top:3px;line-height:1.35}
 .nav-brand-role,.nav-brand-city{display:inline}
 .nav-brand-city::before{content:" · "}
 .nav-links{display:flex;align-items:center;gap:var(--sp-32)}
-.nav-links a{font-size:var(--fs-sm);letter-spacing:var(--track-sm);color:var(--graphite);transition:var(--tr-color)}
+.nav-links a{font-size:1.0625rem;font-weight:500;letter-spacing:var(--track-sm);color:var(--graphite);transition:var(--tr-color)}
 .nav-links a:hover{color:var(--ink)}
 .nav-right{display:flex;align-items:center;gap:var(--sp-24)}
-.nav-phone{font-size:var(--fs-sm);letter-spacing:var(--track-sm);font-weight:500;color:var(--ink)}
+.nav-phone{font-size:1.0625rem;letter-spacing:var(--track-sm);font-weight:500;color:var(--ink)}
 .nav-phone:hover{color:var(--graphite)}
+.nav .btn{font-size:1rem}
 .nav-burger{display:none;width:40px;height:40px;border-radius:var(--r-sm);border:var(--border-fog);place-items:center}
 .nav-burger span{display:block;width:16px;height:1.5px;background:var(--ink);position:relative}
 .nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:var(--ink)}
@@ -96,13 +98,13 @@ h3{font-size:var(--fs-h-sm);letter-spacing:var(--track-h-sm);font-weight:500}
   .nav{padding-block:10px}
   .nav-inner{gap:var(--sp-16)}
   .nav .nav-brand{font-size:1rem}
-  .nav .nav-brand>span{font-size:.625rem;letter-spacing:.05em;margin-top:3px}
+  .nav .nav-brand>span{font-size:.6875rem;letter-spacing:.05em;margin-top:3px}
   .nav .nav-brand-role,.nav .nav-brand-city{display:block}
   .nav .nav-brand-city{margin-top:1px}
   .nav .nav-brand-city::before{content:none}
   .nav-right{gap:10px}
-  .nav-right .btn-sage{padding:7px 14px;font-size:var(--fs-sm)}
-  .nav-burger{width:36px;height:36px}
+  .nav-right .btn-sage{padding:8px 16px;font-size:.9375rem}
+  .nav-burger{width:38px;height:38px}
 }
 
 /* ===== HERO (DARK) ===== */
