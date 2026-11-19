@@ -65,6 +65,91 @@
 }
 </script>
 <link rel="stylesheet" href="style.css"/>
+<style>
+/* ===== Cookie banner ===== */
+.cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  padding: 0 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s;
+  pointer-events: none;
+}
+.cookie-banner.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+.cookie-banner.is-dismissed{ display: none; }
+
+.cookie-banner__inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(20,30,20,.16);
+}
+
+.cookie-banner__content{ min-width: 0; }
+
+.cookie-banner__title{
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.cookie-banner__text{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5a6357;
+  max-width: 760px;
+}
+.cookie-banner__text a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner__actions{
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.cookie-banner__btn{ white-space: nowrap; }
+
+@media (max-width: 860px){
+  .cookie-banner__inner{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px;
+  }
+  .cookie-banner__actions{ margin-left: 0; }
+}
+@media (max-width: 480px){
+  .cookie-banner__actions{ flex-direction: column-reverse; }
+  .cookie-banner__btn{ width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cookie-banner{ transition: none; }
+}
+</style>
 </head>
 <body>
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;left:-9999px"><defs><symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></symbol><symbol id="i-arrow-right-thin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
@@ -286,7 +371,7 @@
       </div>
       <div class="footer-map reveal"><iframe src="https://yandex.ru/map-widget/v1/?ll=30.232500%2C59.998900&z=16&pt=30.232500,59.998900,pm2rdm&mode=search&text=%D1%83%D0%BB.%20%D0%9E%D0%BF%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%2C%2054%2C%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" width="100%" height="100%" frameborder="0" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта — Санкт-Петербург, ул. Оптиков, д. 54"></iframe></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Дмитриев Владимир Валерьевич. Все права защищены.</span><a href="https://albe.su" target="_blank" rel="noopener" class="footer-credit">Сайт разработан в ALBE <span class="albe-digital">DIGITAL</span></a><span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/terms/">Пользовательское соглашение</a></span></div>
+    <div class="footer-bottom"><span>© 2026 Дмитриев Владимир Валерьевич. Все права защищены.</span><a href="https://albe.su" target="_blank" rel="noopener" class="footer-credit">Сайт разработан в ALBE <span class="albe-digital">DIGITAL</span></a><span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/terms/">Пользовательское соглашение</a> · <a href="#" data-cookie-settings>Настройки cookie</a></span></div>
     <p class="footer-legal">Имеются противопоказания. Необходима консультация специалиста. Информация на сайте не является публичной офертой и не заменяет очную консультацию врача. Сайт соответствует требованиям приказа Минздрава России № 118н от 30.12.2014.</p>
   </div>
 </footer>
@@ -294,6 +379,21 @@
 <div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" aria-hidden="true"><div class="success-modal__backdrop" data-success-close></div><div class="success-modal__panel" role="document"><button type="button" class="success-modal__close" aria-label="Закрыть" data-success-close><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><div class="success-modal__icon" aria-hidden="true"><svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><circle class="success-icon__circle" cx="26" cy="26" r="24" fill="none"/><path class="success-icon__check" fill="none" d="M14 27l8 8 16-16"/></svg></div><h2 class="success-modal__title" id="successModalTitle">Ваша заявка успешно отправлена</h2><p class="success-modal__text">Мы свяжемся с вами в ближайшее время. В случае возникновения дополнительных вопросов звоните по телефону <a href="tel:+78126482408">+7 (812) 648-24-08</a>.</p><div class="success-modal__actions"><button type="button" class="btn btn-sage" data-success-close>Понятно</button></div></div></div>
 <div class="modal" id="symptomModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-backdrop" data-modal-close></div><div class="modal-panel" role="document"><button type="button" class="modal-close" aria-label="Закрыть" data-modal-close><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><span class="caption modal-eyebrow">Возможные причины</span><h2 class="modal-title" id="modalTitle"></h2><div class="modal-body"><div class="modal-block"><h3>Что это может быть</h3><p id="modalCauses"></p></div><div class="modal-block"><h3>Чем это может грозить</h3><p id="modalRisks"></p></div></div><div class="modal-actions"><a href="#appointment" class="btn btn-sage" data-modal-close>Записаться на приём <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><button type="button" class="btn btn-ghost" data-modal-close>Позже</button></div></div></div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" aria-hidden="true"><div class="lightbox__backdrop" data-lightbox-close></div><button type="button" class="lightbox__close" aria-label="Закрыть" data-lightbox-close><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg></button><img class="lightbox__img" id="lightboxImg" src="" alt=""/></div>
+
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-labelledby="cookieBannerTitle" aria-hidden="true">
+  <div class="cookie-banner__inner">
+    <div class="cookie-banner__content">
+      <h2 class="cookie-banner__title" id="cookieBannerTitle">Мы используем файлы cookie</h2>
+      <p class="cookie-banner__text">Сайт использует cookie для корректной работы, запоминания настроек и анализа посещаемости. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/privacy/" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</p>
+    </div>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-sage cookie-banner__btn" id="cookieAccept">Принять</button>
+      <button type="button" class="btn btn-ghost cookie-banner__btn" id="cookieDecline">Только необходимые</button>
+    </div>
+  </div>
+</div>
+
 <script>
 'use strict';
 const byId=(id)=>document.getElementById(id);
@@ -361,7 +461,42 @@ function initEducationCarousel(){
   updateUI();
 }
 function initLightbox(){const lb=byId('lightbox');const img=byId('lightboxImg');if(!lb||!img)return;document.querySelectorAll('.method-media img, .education-media img').forEach(source=>{source.addEventListener('click',(e)=>{e.stopPropagation();const src=source.currentSrc||source.src;img.src=src;img.alt=source.alt||'';Modal.open(lb,'.lightbox__close')})});lb.querySelectorAll('[data-lightbox-close]').forEach(el=>{el.addEventListener('click',()=>Modal.close(lb))});Modal.trapFocus(lb)}
-document.addEventListener('DOMContentLoaded',()=>{initNav();initReveal();initSymptomModal();initSuccessModal();initEscapeHandler();initPhoneMask();initForm();initMethodsCarousel();initEducationCarousel();initLightbox()});
+function initCookieBanner(){
+  const KEY='cookie-consent-v1';
+  const banner=byId('cookieBanner');
+  if(!banner)return;
+
+  let stored=null;
+  try{ stored=localStorage.getItem(KEY); }catch(e){}
+  if(stored) return;
+
+  const show=()=>{
+    banner.classList.remove('is-dismissed');
+    banner.classList.add('is-visible');
+    banner.setAttribute(ARIA.HIDDEN,'false');
+  };
+
+  const close=(value)=>{
+    try{ localStorage.setItem(KEY, value); }catch(e){}
+    banner.classList.remove('is-visible');
+    banner.setAttribute(ARIA.HIDDEN,'true');
+    setTimeout(()=>banner.classList.add('is-dismissed'), 350);
+  };
+
+  setTimeout(show, 800);
+
+  byId('cookieAccept')?.addEventListener('click', ()=>close('accepted'));
+  byId('cookieDecline')?.addEventListener('click', ()=>close('essential'));
+
+  document.querySelectorAll('[data-cookie-settings]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      try{ localStorage.removeItem(KEY); }catch(err){}
+      show();
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded',()=>{initNav();initReveal();initSymptomModal();initSuccessModal();initEscapeHandler();initPhoneMask();initForm();initMethodsCarousel();initEducationCarousel();initLightbox();initCookieBanner()});
 </script>
 <script>
 (function(){
