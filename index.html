@@ -37,10 +37,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="/favicon-32x32.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
-<link rel="preconnect" href="https://app.reviewlab.ru" crossorigin/>
+<link rel="preconnect" href="https://prodoctorov.ru"/>
 <link rel="preconnect" href="https://uro-form-worker.faralenatmir.workers.dev"/>
 <link rel="preconnect" href="https://yandex.ru"/>
-<link rel="dns-prefetch" href="//app.reviewlab.ru"/>
+<link rel="dns-prefetch" href="//prodoctorov.ru"/>
 <link rel="preload" href="Geist-Regular.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="Geist-Medium.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="/001.webp" as="image" fetchpriority="high"/>
@@ -307,17 +307,29 @@
   <div class="wrap">
     <div class="reviews-head reveal"><div><span class="caption">Отзывы</span><h2>Что говорят пациенты</h2></div></div>
     <div class="reviews-widget reveal" id="reviewsWidget">
-      <review-lab data-widgetid="6ae79a54577d292d47eb74fa">
-        <a href="https://reviewlab.ru/?utm_source=reviewlab-widget" target="_blank">Сделано на ReviewLab</a>
-      </review-lab>
+      <div id="pd_widget_big" data-doctor="634017" hidden>
+        <div class="pd_rate_header">
+          Отзывы о враче Дмитриев В. В.
+          <br>
+          <a target="_blank"
+             class="pd_rate_new"
+             href="https://prodoctorov.ru/new/rate/doctor/634017/">Оставить отзыв</a>
+        </div>
+        <div id="pd_widget_big_content"></div>
+        <a target="_blank"
+           href="https://prodoctorov.ru/spb/vrach/634017-dmitriev/#otzivi"
+           class="pd_read_all">Читать все отзывы</a>
+        <span id="pd_powered_by">
+          <a target="_blank" href="https://prodoctorov.ru">
+            <img class="pd_logo"
+                 src="https://prodoctorov.ru/static/_v1/pd/logos/logo-pd-widget.png"
+                 alt="ProDoctorov">
+          </a>
+        </span>
+      </div>
       <noscript>
         <p style="padding:1rem 0">Для просмотра отзывов включите JavaScript или перейдите на <a href="https://prodoctorov.ru/spb/vrach/634017-dmitriev/" target="_blank" rel="noopener">Профиль врача на ПроДокторов</a>.</p>
       </noscript>
-      <div class="reviews-skeleton" aria-hidden="true">
-        <div class="reviews-skeleton__card"><div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div><div class="reviews-skeleton__row reviews-skeleton__row--title"></div><div class="reviews-skeleton__row reviews-skeleton__row--line"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div></div>
-        <div class="reviews-skeleton__card"><div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div><div class="reviews-skeleton__row reviews-skeleton__row--title"></div><div class="reviews-skeleton__row reviews-skeleton__row--line"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div></div>
-        <div class="reviews-skeleton__card"><div class="reviews-skeleton__row reviews-skeleton__row--avatar"></div><div class="reviews-skeleton__row reviews-skeleton__row--title"></div><div class="reviews-skeleton__row reviews-skeleton__row--line"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-short"></div><div class="reviews-skeleton__row reviews-skeleton__row--line-shortest"></div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -498,40 +510,7 @@ function initCookieBanner(){
 }
 document.addEventListener('DOMContentLoaded',()=>{initNav();initReveal();initSymptomModal();initSuccessModal();initEscapeHandler();initPhoneMask();initForm();initMethodsCarousel();initEducationCarousel();initLightbox();initCookieBanner()});
 </script>
-<script>
-(function(){
-  'use strict';
-  var reviewsEl = document.querySelector('.reviews-widget');
-  if (!reviewsEl) return;
-  var loaded = false;
-  function loadReviewLab(){
-    if (loaded) return;
-    loaded = true;
-    var skeleton = reviewsEl.querySelector('.reviews-skeleton');
-    if (skeleton) skeleton.remove();
-    var s = document.createElement('script');
-    s.src = 'https://app.reviewlab.ru/widget/index-es2015.js';
-    s.async = true;
-    s.onload = function(){ reviewsEl.classList.add('is-ready'); };
-    s.onerror = function(){ console.warn('ReviewLab: не удалось загрузить скрипт виджета'); };
-    document.body.appendChild(s);
-  }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) { loadReviewLab(); io.disconnect(); }
-      });
-    }, { rootMargin: '600px 0px' });
-    io.observe(reviewsEl);
-  } else {
-    window.addEventListener('load', function(){
-      (window.requestIdleCallback || function(cb){ setTimeout(cb, 200); })(loadReviewLab);
-    });
-  }
-  ['scroll','touchstart','click','keydown'].forEach(function(ev){
-    window.addEventListener(ev, loadReviewLab, { once: true, passive: true });
-  });
-})();
-</script>
+<script defer
+        src="https://prodoctorov.ru/static/js/widget_big.js?v07"></script>
 </body>
 </html>
